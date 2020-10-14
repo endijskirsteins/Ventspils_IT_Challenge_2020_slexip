@@ -6,6 +6,8 @@ public class Lake : MonoBehaviour
 {
     SpriteRenderer sprite;
     public float contamination = 0.0f;
+    public float flow = 0.1f;
+    public float timescale = 1.0f;
     public float water = 10000.0f;
     public float contamination_ratio = 0.0f;
     private Vector4 start_color;
@@ -26,5 +28,16 @@ public class Lake : MonoBehaviour
         sprite.color = new Color(start_color[0] + ((end_color[0] - start_color[0]) * contamination_ratio), start_color[1] + ((end_color[1] - start_color[1]) * contamination_ratio), start_color[2] + ((end_color[2] - start_color[2]) * contamination_ratio), 1.0f);
         //sprite.color = new Color(contamination / water, 0.7172986f, 0.8490566f, 1);
         print(start_color[0] + ((end_color[0] - start_color[0]) * contamination_ratio));
+    }
+    void FixedUpdate()
+    {
+        if(contamination <= 0 )
+        {
+            contamination = 0;
+        }
+        else
+        {
+            contamination = contamination - (flow * timescale);
+        }
     }
 }

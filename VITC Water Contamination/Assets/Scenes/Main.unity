@@ -236,7 +236,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0dd704a2cf3405549a890b106eb942b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  contamination: 0
+  contamination: 10000
+  flow: 0.1
+  timescale: 1
   water: 10000
   contamination_ratio: 0
 --- !u!212 &946250448
